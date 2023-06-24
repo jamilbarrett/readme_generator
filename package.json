@@ -1,14 +1,29 @@
 {
-  "name": "readme_generator",
+  "name": "readmecreate",
   "version": "1.0.0",
-  "description": "",
+  "description": "![GitHub license](https://img.shields.io/badge/license-MIT License-blue.svg)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "jamilbarrett",
   "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.5"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamilbarrett/readme_generator.git"
+  },
+  "keywords": [
+    "['readme'",
+    "'bootcamp'",
+    "'",
+    "ReadMe-generator']"
+  ],
+  "bugs": {
+    "url": "https://github.com/jamilbarrett/readme_generator/issues"
+  },
+  "homepage": "https://github.com/jamilbarrett/readme_generator#readme"
 }

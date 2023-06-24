@@ -9,7 +9,7 @@ const fs = require('fs');
 const questions = [
     {
         name: 'title',
-        message: 'What is the title of your ReadMe?'
+        message: 'What is the title of your Project?'
     },
 
     {
@@ -29,7 +29,7 @@ const questions = [
         type: 'checkbox',
         message: 'Please select your license',
         choices: [
-            'MIT License',
+            'MIT',
             'Apache License 2.0',
             'GNU General Public License (GPL)',
             'BSD 2-Clause License',
@@ -106,12 +106,6 @@ ${question}
     })
 
 
-// TODO: Create a function to initialize app
-// function init(generateMarkdown,
-//     renderLicenseLink,
-//     renderLicenseSection,
-//     renderLicenseBadge) { }
 
-// // Function call to initialize app
-// init();
+
 
