@@ -1,4 +1,3 @@
-
 # README_generator
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -12,5 +11,3 @@ To make creating a README.MD file super easy without wondering what sections are
 ## License
 
 This project is licensed under the MIT license.
-## Contributors: 
-
