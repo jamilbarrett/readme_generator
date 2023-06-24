@@ -34,7 +34,7 @@ const questions = [
     },
    ])
 ];
-.then(({title, description, install, usage, contributers, test}))
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
