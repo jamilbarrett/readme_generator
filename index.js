@@ -1,9 +1,10 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const generateMarkdown = require('./generateMarkdown.js')
-const fs = require('fs')
+const renderLicenseSection = generateMarkdown.renderLicenseSection;
+const renderLicenseBadge = generateMarkdown.renderLicenseBadge;
 
-
+const fs = require('fs');
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -25,7 +26,7 @@ const questions = [
     },
     {
         name: 'license',
-        type: 'list',
+        type: 'checkbox',
         message: 'Please select your license',
         choices: [
             'MIT License',
@@ -60,23 +61,44 @@ const questions = [
         message: 'What forms of testing were done on your project?'
     },
     {
-        name: 'questions',
+        name: 'question',
         message: 'How can one reach out for support or with general questions?'
     }
 ]
 inquirer.prompt(questions)
-    .then(({ title, description, install, usage, license, contributors, test }) => {
+    .then(({ title, description, install, usage, license, contributors, test, question }) => {
+        const showLicenseBadge = renderLicenseBadge(license);
+        const showLicenseSection = renderLicenseSection(license);
+
         const content = `
-# Title: ${title}
-## Description: ${description}
-## Installation: ${install}
-## Usage: ${usage}
+# ${title}
+${showLicenseBadge}
+
+## Description: 
+${description}
+
+## Table of Contents: 
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributors](#contributors)
+- [Test](#test)
+- [Questions](#questions)
+
+## Installation: 
+${install}
+## Usage: 
+${usage}
 ## License: 
-${license.map(lic => `- ${lic}`).join('\n')}
-## Contributors: ${contributors}
-## Test: ${test}
+${showLicenseSection}
+## Contributors: 
+${contributors}
+## Test: 
+${test}
+## Questions: 
+${question}
 `
-//Function to create ReadME
+        //Function to create ReadME
         console.log('README.md file has been created successfully.')
         fs.writeFile('./README.md', content, err => {
             if (err) throw err
@@ -85,11 +107,11 @@ ${license.map(lic => `- ${lic}`).join('\n')}
 
 
 // TODO: Create a function to initialize app
-function init(generateMarkdown, 
-    renderLicenseLink, 
-    renderLicenseSection, 
-    renderLicenseBadge) { }
+// function init(generateMarkdown,
+//     renderLicenseLink,
+//     renderLicenseSection,
+//     renderLicenseBadge) { }
 
-// Function call to initialize app
-init();
+// // Function call to initialize app
+// init();
 
