@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
-// const generateMarkdown = require('./generateMarkdown.js')
+const generateMarkdown = require('./generateMarkdown.js')
 const fs = require('fs')
 
 
@@ -25,7 +25,7 @@ const questions = [
     },
     {
         name: 'license',
-        type: 'checkbox',
+        type: 'list',
         message: 'Please select your license',
         choices: [
             'MIT License',
@@ -76,15 +76,20 @@ ${license.map(lic => `- ${lic}`).join('\n')}
 ## Contributors: ${contributors}
 ## Test: ${test}
 `
+//Function to create ReadME
         console.log('README.md file has been created successfully.')
         fs.writeFile('./README.md', content, err => {
             if (err) throw err
         })
     })
-// TODO: Create a function to write README file
+
 
 // TODO: Create a function to initialize app
-function init() { }
+function init(generateMarkdown, 
+    renderLicenseLink, 
+    renderLicenseSection, 
+    renderLicenseBadge) { }
 
 // Function call to initialize app
 init();
+
